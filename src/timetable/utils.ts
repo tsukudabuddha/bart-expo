@@ -29,7 +29,22 @@ export const getStationInfo = (etdResponse: EtdResponse) => {
     }
   })
 
-  // TODO: Split by platform
+  items.sort((a, b) => {
+    const aEstimate =  a.estimates[0] 
+    const bEstimate = b.estimates[0]
+
+    if (aEstimate.trim() === 'Leaving') {
+      return -1
+    }
+
+    if (bEstimate.trim() === 'Leaving') {
+      return 1
+    }
+
+    const aEstimateNum = Number(aEstimate)
+    const bEstimateNum = Number(bEstimate)
+    return aEstimateNum - bEstimateNum;
+  });
   
   const sections: SectionData[] = Object.values(
     items.reduce<{ [key: string]: SectionData }>((acc, item) => {
@@ -48,6 +63,7 @@ export const getStationInfo = (etdResponse: EtdResponse) => {
 
   return {name: station.name, sections}
 }
+
 
 const getColor = (color: string): string | undefined => {
   switch (color) {

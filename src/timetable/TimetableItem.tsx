@@ -10,6 +10,9 @@ export const TimetableItem = ({item} : {item: Estimate}) => {
   const borderRadius = 8
 
   // TODO: Replace background for light mode
+
+  const time = item.estimates.join(', ')
+
   return (
     <Container isDarkMode={isDarkMode} borderRadius={borderRadius}> 
       <Bar color={item.color} borderRadius={borderRadius} />
@@ -17,7 +20,7 @@ export const TimetableItem = ({item} : {item: Estimate}) => {
         <Text variant="headline" alignment="left">{item.destination}</Text>
         <BottomRow>
           <Text color={colors.secondaryDarkText} style={{marginTop: 8}}variant="body" alignment="left">{`${item.trainLength}-Car Train`}</Text>
-          <Text style={{marginTop: 8}}variant="body" alignment="left">{`${item.estimates.join(', ')} min`}</Text>
+          <Text style={{marginTop: 8}}variant="body" alignment="left">{time === 'Leaving' ? time + ' now' : time + ' min'}</Text>
         </BottomRow>
       </TextContainer>
     </Container>

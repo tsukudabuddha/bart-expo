@@ -1,4 +1,4 @@
-import { View } from 'react-native'
+import { ActivityIndicator, View } from 'react-native'
 import { Timetable } from "../timetable/Timetable"
 import useLocation from '../hooks/useLocation';
 import { useStations } from '../hooks/useStations';
@@ -11,9 +11,13 @@ export const Home = () => {
 
   // TODO: Show loading indicator when nearestStation is undefined
 
+  if (!nearestStation) {
+    return <ActivityIndicator/>
+  }
+
   return (
     <View style={{flex: 1}}>
-      <Timetable abbreviation={ nearestStation ? nearestStation.abbr : "WOAK"}/>
+      <Timetable abbreviation={nearestStation.abbr}/>
     </View>
   )
 }

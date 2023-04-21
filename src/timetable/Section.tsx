@@ -6,7 +6,7 @@ import { Estimate } from "./utils";
 export type SectionData = {
   title: string;
   items: Estimate[];
-  marginBottom: number;
+  marginBottom?: number;
 }
 
 export const Section = ({title, items, marginBottom}: SectionData) => {
