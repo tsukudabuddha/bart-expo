@@ -17,6 +17,13 @@ export const LocationProvider = ({ children }: PropsWithChildren) => {
 
       let newLocation = await Location.getCurrentPositionAsync({});
       setLocation(newLocation);
+
+      const intervalId = setInterval(async () => {
+        let updatedLocation = await Location.getCurrentPositionAsync({});
+        setLocation(updatedLocation);
+      }, 300000); // update location every 5 minutes
+
+      return () => clearInterval(intervalId); // clear the interval when the component unmounts
     })();
   }, []);
 
@@ -26,6 +33,7 @@ export const LocationProvider = ({ children }: PropsWithChildren) => {
     </LocationContext.Provider>
   );
 };
+
 
 const useLocation = () => {
   const location = useContext(LocationContext);
