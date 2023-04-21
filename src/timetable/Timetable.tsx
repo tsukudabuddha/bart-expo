@@ -10,12 +10,14 @@ type UseTimetableParams = {
   abbreviation: string
 }
 
-export const useTimetableQuery = ({ abbreviation }: UseTimetableParams): UseQueryResult<EtdResponse, unknown> => {
+export const useTimetable = ({ abbreviation }: UseTimetableParams): UseQueryResult<EtdResponse, unknown> => {
   return useQuery(["timetable", abbreviation], async () => {
     const { data } = await axios.get(
       `https://api.bart.gov/api/etd.aspx?cmd=etd&orig=${abbreviation.toLowerCase()}&key=MW9S-E7SL-26DU-VV8V&json=y`
     );
     return data;
+  }, { 
+    refetchInterval: 60 * 1000, // 1 minute interval 
   });
 }
 
@@ -24,7 +26,7 @@ type Props = {
 }
 
 export const Timetable = ({abbreviation}: Props) => {
-  const { isLoading, error, data } = useTimetableQuery({ abbreviation })
+  const { isLoading, error, data } = useTimetable({ abbreviation })
 
   const info = data ? getStationInfo(data) : undefined
 
