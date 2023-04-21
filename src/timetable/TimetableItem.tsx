@@ -33,7 +33,7 @@ const Container = styled.View<ContainerProps>`
   background-color: ${({ isDarkMode }: ContainerProps) =>
     isDarkMode ? colors.secondaryDarkBackground : 'grey'};
   border-radius: ${({ borderRadius }: ContainerProps) => borderRadius}px;
-  margin-top: 16px;
+  margin-bottom: 16px;
   flex-direction: row;
 `;
 

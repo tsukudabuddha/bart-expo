@@ -45,10 +45,6 @@ export const getStationInfo = (etdResponse: EtdResponse) => {
   );
 
   sections.sort((s1, s2) => s1.title < s2.title ? -1 : 1)
-  
-  console.log(sections);
-  
-
 
   return {name: station.name, sections}
 }
