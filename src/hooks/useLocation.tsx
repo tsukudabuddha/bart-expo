@@ -8,7 +8,7 @@ export const LocationProvider = ({ children }: PropsWithChildren) => {
   const [errorMsg, setErrorMsg] = useState<string|null>(null);
 
   useEffect(() => {
-    (async () => {
+    const updateLocation = async () => {
       let { status } = await Location.requestForegroundPermissionsAsync();
       if (status !== 'granted') {
         setErrorMsg('Permission to access location was denied');
@@ -17,15 +17,17 @@ export const LocationProvider = ({ children }: PropsWithChildren) => {
 
       let newLocation = await Location.getCurrentPositionAsync({});
       setLocation(newLocation);
+    }
 
-      const intervalId = setInterval(async () => {
-        let updatedLocation = await Location.getCurrentPositionAsync({});
-        setLocation(updatedLocation);
-      }, 300000); // update location every 5 minutes
+    updateLocation()
 
-      return () => clearInterval(intervalId); // clear the interval when the component unmounts
-    })();
-  }, []);
+    const intervalId = setInterval(async () => {
+      updateLocation()
+    }, 300000); // update location every 5 minutes
+
+    return () => clearInterval(intervalId); // clear the interval when the component unmounts
+    }
+  , []);
 
   return (
     <LocationContext.Provider value={location}>
