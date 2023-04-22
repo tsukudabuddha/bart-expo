@@ -6,6 +6,7 @@ import { ScrollView, View } from "react-native";
 import { Text } from "../core-ui/Text";
 import { Section } from "./Section";
 import { useTimetable } from "./useTimetable";
+import { useNavigation } from '@react-navigation/native'
 
 type Props = {
   abbreviation: string
@@ -13,6 +14,7 @@ type Props = {
 
 export const Timetable = ({abbreviation}: Props) => {
   const { isLoading, error, data } = useTimetable({ abbreviation })
+
 
   const info = data ? getStationInfo(data) : undefined
 
