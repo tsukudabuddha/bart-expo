@@ -1,8 +1,8 @@
 {
   "expo": {
-    "name": "bart-expo",
+    "name": "Bart",
     "slug": "bart-expo",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "auto",
