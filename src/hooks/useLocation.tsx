@@ -15,7 +15,7 @@ export const LocationProvider = ({ children }: PropsWithChildren) => {
         return;
       }
 
-      let newLocation = await Location.getCurrentPositionAsync({});
+      let newLocation = await Location.getCurrentPositionAsync({ accuracy: Location.LocationAccuracy.Low});
       setLocation(newLocation);
     }
 
