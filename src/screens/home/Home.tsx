@@ -4,6 +4,7 @@ import useLocation from '../../hooks/useLocation';
 import { useStations } from '../../hooks/useStations';
 import { getNearestStation } from './utils/getNearestStation';
 import { useNavigation } from '@react-navigation/native'
+import { useEffect } from 'react';
 
 export const Home = () => {
   const location = useLocation()

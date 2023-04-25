@@ -4,7 +4,6 @@ import { LocationProvider } from '../hooks/useLocation';
 import { StationsProvider } from '../hooks/useStations';
 import { Text, useColorScheme } from 'react-native'
 import { Home } from '../screens/home/Home';
-import { AllStations } from '../screens/stations/AllStations';
 import StationsNavigator from './StationsNavigator';
 
 const Tab = createBottomTabNavigator();
@@ -20,9 +19,9 @@ export default function MainTabBarNavigator() {
   return (
     <LocationProvider>
       <StationsProvider>
-        <Tab.Navigator screenOptions={{ headerShown: false, tabBarStyle: { backgroundColor }}}>
+        <Tab.Navigator screenOptions={{ headerShown: false, tabBarStyle: { backgroundColor, borderTopWidth: 0 }}}>
           <Tab.Screen name="Home" component={Home} options={{ headerShown: false }} />
-          <Tab.Screen name="Stations" component={StationsNavigator} />
+          <Tab.Screen name="StationsNavigator" component={StationsNavigator} />
         </Tab.Navigator>
       </StationsProvider>
     </LocationProvider>

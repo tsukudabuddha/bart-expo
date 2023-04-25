@@ -1,9 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import { SafeAreaView, StyleSheet, Text, View, useColorScheme } from 'react-native';
 import { QueryClient, QueryClientProvider } from 'react-query';
-import { Home } from './src/screens/home/Home';
-import { LocationProvider } from './src/hooks/useLocation';
-import { StationsProvider } from './src/hooks/useStations';
 import { NavigationContainer } from '@react-navigation/native';
 import MainTabBarNavigator from './src/navigation/MainTabBarNavigator';
 import 'react-native-gesture-handler';
@@ -15,7 +12,7 @@ export default function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <NavigationContainer>
-          <SafeAreaView style={{backgroundColor: isDarkMode ? 'black' : 'white', flex: 1}}>
+          <SafeAreaView style={{backgroundColor: isDarkMode ? 'black' : 'white', flex: 1}} >
             <StatusBar/>
             <MainTabBarNavigator/>
           </SafeAreaView>
@@ -23,11 +20,3 @@ export default function App() {
     </QueryClientProvider>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});

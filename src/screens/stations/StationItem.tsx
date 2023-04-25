@@ -8,8 +8,8 @@ type Props = {
 
 export const StationItem = ({ item, onPress }: Props ) => {
   return (
-    <TouchableOpacity onPress={() => onPress(item.abbr)} style={{ borderRadius: 4, padding: 16, justifyContent: 'center'}}>
-      <Text>{item.name}</Text>
+    <TouchableOpacity onPress={() => onPress(item.abbr)} style={{ borderRadius: 4, padding: 16, justifyContent: 'center', backgroundColor: 'black'}}>
+      <Text style={{color: 'white'}}>{item.name}</Text>
     </TouchableOpacity>
   )
 }
