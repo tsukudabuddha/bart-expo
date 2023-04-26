@@ -10,19 +10,27 @@ import useOnAppForeground from "../hooks/useOnAppForeground";
 import { useNavigation } from '@react-navigation/native'
 import { ParamList, Screens } from "../navigation/StationsNavigator";
 import { StackNavigationProp } from '@react-navigation/stack'
+import { useEffect } from "react";
 
 type Props = {
   abbreviation: string
   hideTitle?: boolean
+  hasNavigationHeader?: boolean
 }
 
-export const Timetable = ({abbreviation, hideTitle}: Props) => {
+export const Timetable = ({abbreviation, hideTitle, hasNavigationHeader}: Props) => {
   const { isLoading, error, data, refetch } = useTimetable({ abbreviation })
   useOnAppForeground(refetch)
 
   const navigation = useNavigation<StackNavigationProp<ParamList>>()
-  navigation.setOptions({ title: data?.root.station[0].name ?? '' })
+  useEffect(() => {
+    if (hasNavigationHeader) {
+      navigation.setOptions({ title: data?.root.station[0].name ?? '' })
+    }
+  },[hasNavigationHeader, data?.root.station[0].name])
 
+  
+  
 
   const info = data ? getStationInfo(data) : undefined
 

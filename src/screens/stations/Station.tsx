@@ -16,5 +16,5 @@ export const Station = ({route, navigation}: Props) => {
 
   const isDarkMode = useColorScheme() === 'dark'
   const backgroundColor = isDarkMode ? 'black' : 'white'
-  return <View style={{backgroundColor, flex: 1, borderTopWidth: 0, paddingTop: 24}}><Timetable abbreviation={abbr} hideTitle={true}/></View>
+  return <View style={{backgroundColor, flex: 1, borderTopWidth: 0, paddingTop: 24}}><Timetable abbreviation={abbr} hideTitle={true} hasNavigationHeader={true}/></View>
 }
