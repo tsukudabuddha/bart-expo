@@ -3,6 +3,8 @@ import { createStackNavigator } from '@react-navigation/stack'
 import { Text, useColorScheme } from 'react-native'
 import { AllStations } from '../screens/stations/AllStations'
 import { Station } from '../screens/stations/Station'
+import { Screens } from '../constants/screens'
+import { ParamList } from '../constants/paramlist'
 
 const Stack = createStackNavigator<ParamList>()
 
@@ -16,14 +18,4 @@ export default function StationsNavigator() {
       <Stack.Screen name={Screens.STATION} component={Station} options={{ headerTintColor: 'white' }} />
     </Stack.Navigator>
   )
-}
-
-export enum Screens {
-  ALL_STATIONS = 'all-stations',
-  STATION = 'station',
-}
-
-export type ParamList = {
-  [Screens.ALL_STATIONS]: {}
-  [Screens.STATION]: { abbr: string }
 }

@@ -5,6 +5,8 @@ import { StationsProvider } from '../hooks/useStations'
 import { Text, useColorScheme } from 'react-native'
 import { Home } from '../screens/home/Home'
 import StationsNavigator from './StationsNavigator'
+import { Screens } from '../constants/screens'
+import { Ionicons } from '@expo/vector-icons'
 
 const Tab = createBottomTabNavigator()
 
@@ -20,8 +22,20 @@ export default function MainTabBarNavigator() {
     <LocationProvider>
       <StationsProvider>
         <Tab.Navigator screenOptions={{ headerShown: false, tabBarStyle: { backgroundColor, borderTopWidth: 0 } }}>
-          <Tab.Screen name="Home" component={Home} options={{ headerShown: false }} />
-          <Tab.Screen name="StationsNavigator" component={StationsNavigator} />
+          <Tab.Screen
+            name={Screens.HOME_MAIN}
+            component={Home}
+            options={{
+              title: 'Home',
+              headerShown: false,
+              tabBarIcon: ({ color }) => <Ionicons name="home" size={25} color={color} />,
+            }}
+          />
+          <Tab.Screen
+            name={Screens.STATIONS_MAIN}
+            component={StationsNavigator}
+            options={{ title: 'Stations', tabBarIcon: ({ color }) => <Ionicons name="list-outline" size={25} color={color} /> }}
+          />
         </Tab.Navigator>
       </StationsProvider>
     </LocationProvider>

@@ -1,8 +1,9 @@
 import { FlatList, useColorScheme } from 'react-native'
 import { useStations } from '../../hooks/useStations'
 import { StationItem } from './StationItem'
-import { ParamList, Screens } from '../../navigation/StationsNavigator'
 import { StackNavigationProp } from '@react-navigation/stack'
+import { Screens } from '../../constants/screens'
+import { ParamList } from '../../constants/paramlist'
 
 type Props = {
   navigation: StackNavigationProp<ParamList>
