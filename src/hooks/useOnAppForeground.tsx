@@ -1,23 +1,23 @@
-import { useRef, useEffect } from 'react';
-import { AppState, AppStateStatus } from 'react-native';
+import { useRef, useEffect } from 'react'
+import { AppState, AppStateStatus } from 'react-native'
 
 const useOnAppForeground = (onAppForeground: () => void): null => {
-  const appState = useRef<AppStateStatus>(AppState.currentState);
+  const appState = useRef<AppStateStatus>(AppState.currentState)
 
   useEffect(() => {
     const subscription = AppState.addEventListener('change', nextAppState => {
       if (appState.current.match(/inactive|background/) && nextAppState === 'active') {
-        onAppForeground();
+        onAppForeground()
       }
-      appState.current = nextAppState;
-    });
+      appState.current = nextAppState
+    })
 
     return () => {
-      subscription.remove();
-    };
-  }, [onAppForeground]);
-  
-  return null;
-};
+      subscription.remove()
+    }
+  }, [onAppForeground])
 
-export default useOnAppForeground;
+  return null
+}
+
+export default useOnAppForeground

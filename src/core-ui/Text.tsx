@@ -18,13 +18,12 @@ const getStyles = (variant: TextVariant): StyleProp<TextStyle> => {
       return { fontSize: 17, fontWeight: '400' } // regular
     case 'footnote':
       return { fontSize: 13, fontWeight: '400' } // regular
-      
   }
 }
 
-export const Text = ({style, variant, alignment, color, children}: Props) => {
-  const isDarkMode = useColorScheme() === 'dark';
+export const Text = ({ style, variant, alignment, color, children }: Props) => {
+  const isDarkMode = useColorScheme() === 'dark'
   const textStyle = getStyles(variant)
   const textColor = color ? color : isDarkMode ? 'white' : 'black'
-  return <RNText style={[style, textStyle, {textAlign: alignment}, {color: textColor}]} >{children}</RNText>
+  return <RNText style={[style, textStyle, { textAlign: alignment }, { color: textColor }]}>{children}</RNText>
 }
