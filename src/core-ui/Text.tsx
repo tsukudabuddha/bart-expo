@@ -5,8 +5,8 @@ type TextVariant = 'headline' | 'body' | 'footnote'
 
 type Props = PropsWithChildren & {
   style?: StyleProp<TextStyle>
-  variant: TextVariant
-  alignment: TextStyle['textAlign']
+  variant?: TextVariant
+  alignment?: TextStyle['textAlign']
   color?: string
 }
 
@@ -21,7 +21,7 @@ const getStyles = (variant: TextVariant): StyleProp<TextStyle> => {
   }
 }
 
-export const Text = ({ style, variant, alignment, color, children }: Props) => {
+export const Text = ({ style, variant = 'body', alignment = 'auto', color, children }: Props) => {
   const isDarkMode = useColorScheme() === 'dark'
   const textStyle = getStyles(variant)
   const textColor = color ? color : isDarkMode ? 'white' : 'black'

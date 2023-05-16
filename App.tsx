@@ -7,6 +7,7 @@ import 'react-native-gesture-handler'
 import { NativeBaseProvider } from 'native-base'
 import { SheetProvider } from 'react-native-actions-sheet'
 import './src/sheets/sheets'
+import { theme } from './src/ui/theme'
 
 const queryClient = new QueryClient()
 
@@ -15,7 +16,7 @@ export default function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <NavigationContainer>
-        <NativeBaseProvider>
+        <NativeBaseProvider theme={theme}>
           <SheetProvider>
             <SafeAreaView style={{ backgroundColor: isDarkMode ? 'black' : 'white', flex: 1 }}>
               <StatusBar />
