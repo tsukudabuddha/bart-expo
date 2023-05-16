@@ -8,6 +8,8 @@ import { useNavigation } from '@react-navigation/native'
 import { ParamList } from '../navigation/StationsNavigator'
 import { StackNavigationProp } from '@react-navigation/stack'
 import { useEffect } from 'react'
+import { SheetManager } from 'react-native-actions-sheet'
+import { Sheets } from '../sheets/sheets'
 
 type Props = {
   abbreviation: string
@@ -28,6 +30,11 @@ export const Timetable = ({ abbreviation, hideTitle, hasNavigationHeader }: Prop
 
   const info = data ? getStationInfo(data) : undefined
 
+  const handleOnItemPress = (abbr: string) => {
+    SheetManager.show(Sheets.ROUTE_DETAIL)
+    console.log(abbr)
+  }
+
   return (
     <View style={{ flex: 1 }}>
       {!hideTitle && (
@@ -44,7 +51,9 @@ export const Timetable = ({ abbreviation, hideTitle, hasNavigationHeader }: Prop
         }}
       >
         {info ? (
-          info.sections.map(section => <Section key={section.title} title={section.title} items={section.items} marginBottom={16} />)
+          info.sections.map(section => (
+            <Section key={section.title} title={section.title} items={section.items} marginBottom={16} onItemPress={handleOnItemPress} />
+          ))
         ) : (
           <></>
         )}

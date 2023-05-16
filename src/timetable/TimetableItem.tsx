@@ -2,9 +2,9 @@ import { Text } from '../core-ui/Text'
 import styled from 'styled-components/native'
 import { colors } from '../core-ui/colors'
 import { Estimate } from './utils'
-import { View, useColorScheme } from 'react-native'
+import { TouchableOpacity, View, useColorScheme } from 'react-native'
 
-export const TimetableItem = ({ item }: { item: Estimate }) => {
+export const TimetableItem = ({ item, onPress }: { item: Estimate; onPress: () => void }) => {
   const isDarkMode = useColorScheme() === 'dark'
 
   const borderRadius = 8
@@ -14,7 +14,7 @@ export const TimetableItem = ({ item }: { item: Estimate }) => {
   const time = item.estimates.join(', ')
 
   return (
-    <Container isDarkMode={isDarkMode} borderRadius={borderRadius}>
+    <Container isDarkMode={isDarkMode} borderRadius={borderRadius} onPress={onPress}>
       <Bar color={item.color} borderRadius={borderRadius} />
       <TextContainer>
         <Text variant="headline" alignment="left">
@@ -41,7 +41,7 @@ type ContainerProps = {
   borderRadius: number
 }
 
-const Container = styled.View<ContainerProps>`
+const Container = styled(TouchableOpacity)<ContainerProps>`
   background-color: ${({ isDarkMode }: ContainerProps) => (isDarkMode ? colors.secondaryDarkBackground : 'grey')};
   border-radius: ${({ borderRadius }: ContainerProps) => borderRadius}px;
   margin-bottom: 16px;

@@ -25,11 +25,11 @@ export const theme = extendTheme({
     // Changing initialColorMode to 'dark'
     initialColorMode: 'dark',
   },
-  fonts: TYPOGRAPHY.FONTS,
+  // fonts: TYPOGRAPHY.FONTS,
   letterSpacings: TYPOGRAPHY.LETTER_SPACINGS,
   lineHeights: TYPOGRAPHY.LINE_HEIGHTS,
   fontSizes: TYPOGRAPHY.FONT_SIZES,
-  fontConfig: TYPOGRAPHY.FONT_CONFIG,
+  // fontConfig: TYPOGRAPHY.FONT_CONFIG,
   components: {
     Text: TYPOGRAPHY.TEXT,
   },

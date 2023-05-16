@@ -35,58 +35,58 @@ export const TYPOGRAPHY = {
     '4xl': 34,
     '5xl': 40,
   },
-  FONTS: {
-    heading: 'Epilogue-Medium',
-    body: 'Inter-Regular',
-    mono: 'Inter-Medium',
-  },
-  FONT_CONFIG: {
-    'Inter-Regular': {
-      400: {
-        normal: 'Inter-Regular',
-      },
-    },
-    'Epilogue-Medium': {
-      500: {
-        normal: 'Epilogue-Medium',
-      },
-    },
-  },
+  // FONTS: {
+  //   heading: 'Epilogue-Medium',
+  //   body: 'Inter-Regular',
+  //   mono: 'Inter-Medium',
+  // },
+  // FONT_CONFIG: {
+  //   'Inter-Regular': {
+  //     400: {
+  //       normal: 'Inter-Regular',
+  //     },
+  //   },
+  //   'Epilogue-Medium': {
+  //     500: {
+  //       normal: 'Epilogue-Medium',
+  //     },
+  //   },
+  // },
   TEXT: {
     baseStyle: {
       fontWeight: '400',
-      fontFamily: 'Inter-Regular',
+      // fontFamily: 'Inter-Regular',
       fontSize: '3xl', // default is out body variant
       lineHeight: 'xl', // default is out body variant
       letterSpacing: 'xs', // default is out body variant
     },
     variants: {
       largeTitle: {
-        fontFamily: 'Epilogue-Medium',
+        // fontFamily: 'Epilogue-Medium',
         fontWeight: '500',
         fontSize: '7xl',
         lineHeight: '5xl',
       },
       title1: {
-        fontFamily: 'Epilogue-Medium',
+        // fontFamily: 'Epilogue-Medium',
         fontWeight: '500',
         fontSize: '6xl',
         lineHeight: '4xl',
       },
       title2: {
-        fontFamily: 'Epilogue-Medium',
+        // fontFamily: 'Epilogue-Medium',
         fontWeight: '500',
         fontSize: '5xl',
         lineHeight: '3xl',
       },
       title3: {
-        fontFamily: 'Epilogue-Medium',
+        // fontFamily: 'Epilogue-Medium',
         fontWeight: '500',
         fontSize: '4xl',
         lineHeight: '2xl',
       },
       headline: {
-        fontFamily: 'Epilogue-Medium',
+        // fontFamily: 'Epilogue-Medium',
         fontWeight: '500',
         fontSize: '3xl',
         lineHeight: 'xl',
@@ -96,7 +96,7 @@ export const TYPOGRAPHY = {
         lineHeight: 'lg',
       },
       subhead: {
-        fontFamily: 'Epilogue-Medium',
+        // fontFamily: 'Epilogue-Medium',
         fontWeight: '500',
         fontSize: 'xl',
         lineHeight: 'md',
@@ -112,7 +112,7 @@ export const TYPOGRAPHY = {
         letterSpacing: 'md',
       },
       caption1Caps: {
-        fontFamily: 'Inter-Medium',
+        // fontFamily: 'Inter-Medium',
         fontSize: 'md',
         lineHeight: 'xs',
         letterSpacing: '2xl',
@@ -124,7 +124,7 @@ export const TYPOGRAPHY = {
         letterSpacing: 'md',
       },
       caption2Caps: {
-        fontFamily: 'Inter-Medium',
+        // fontFamily: 'Inter-Medium',
         fontSize: 'sm',
         lineHeight: '2xs',
         letterSpacing: 'xl',
@@ -136,7 +136,7 @@ export const TYPOGRAPHY = {
         letterSpacing: 'lg',
       },
       caption3Caps: {
-        fontFamily: 'Inter-Medium',
+        // fontFamily: 'Inter-Medium',
         fontSize: '2xs',
         lineHeight: '2xs',
         letterSpacing: 'xl',

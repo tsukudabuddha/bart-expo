@@ -3,6 +3,7 @@ import { SectionData } from './Section'
 
 export type Estimate = {
   destination: string
+  abbreviation: string
   color: string | undefined
   trainLength: number
   bike: boolean
@@ -22,6 +23,7 @@ export const getStationInfo = (etdResponse: EtdResponse) => {
     const estimate = etd.estimate[0]
     return {
       destination: etd.destination,
+      abbreviation: etd.abbreviation,
       color: getColor(estimate.color),
       trainLength: Number(estimate.length),
       bike: Boolean(estimate.bikeflag),
