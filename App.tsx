@@ -8,6 +8,7 @@ import { NativeBaseProvider } from 'native-base'
 import { SheetProvider } from 'react-native-actions-sheet'
 import './src/sheets/sheets'
 import { theme } from './src/ui/theme'
+import { StationsProvider } from './src/hooks/useStations'
 
 const queryClient = new QueryClient()
 
@@ -17,12 +18,14 @@ export default function App() {
     <QueryClientProvider client={queryClient}>
       <NavigationContainer>
         <NativeBaseProvider theme={theme}>
-          <SheetProvider>
-            <SafeAreaView style={{ backgroundColor: isDarkMode ? 'black' : 'white', flex: 1 }}>
-              <StatusBar />
-              <MainTabBarNavigator />
-            </SafeAreaView>
-          </SheetProvider>
+          <StationsProvider>
+            <SheetProvider>
+              <SafeAreaView style={{ backgroundColor: isDarkMode ? 'black' : 'white', flex: 1 }}>
+                <StatusBar />
+                <MainTabBarNavigator />
+              </SafeAreaView>
+            </SheetProvider>
+          </StationsProvider>
         </NativeBaseProvider>
       </NavigationContainer>
     </QueryClientProvider>

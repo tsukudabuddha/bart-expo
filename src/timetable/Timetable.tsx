@@ -31,7 +31,7 @@ export const Timetable = ({ abbreviation, hideTitle, hasNavigationHeader }: Prop
   const info = data ? getStationInfo(data) : undefined
 
   const handleOnItemPress = (abbr: string) => {
-    SheetManager.show(Sheets.ROUTE_DETAIL)
+    SheetManager.show(Sheets.ROUTE_DETAIL, { payload: { destAbbr: abbr, originStation: data?.root.station[0] } })
     console.log(abbr)
   }
 
